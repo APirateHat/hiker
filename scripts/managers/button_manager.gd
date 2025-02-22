@@ -12,11 +12,9 @@ func _ready() -> void:
 				button.connect("pressed", _button_pressed.bind(button))
 
 func _button_hover(button:Button):
-	#AudioManager.play_audio(load("res://audio/sfx/ui/button_hover2.ogg"), 0.0)
 	animate_button(button, 1.2)
 
 func _button_pressed(button:Button):
-	#AudioManager.play_audio(load("res://audio/sfx/ui/button_hover.ogg"), 0.0)
 	animate_button(button, 1.4)
 
 func animate_button(button:Button, scale:float):

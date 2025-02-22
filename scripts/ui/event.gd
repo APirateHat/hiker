@@ -58,8 +58,6 @@ func _on_button_yes_pressed() -> void:
 		set_data(true)
 	else:
 		get_chance()
-	#check_success()
-	#queue_free()
 
 func get_chance():
 	var rand_num = randi_range(1, 10)
@@ -72,36 +70,6 @@ func get_chance():
 	else:
 		$Stamp/AnimationPlayer.play("stamp_fail")
 		$Stamp/TextureRect.texture = load("res://graphics/stamps/fail.svg")
-
-#func check_success():
-	#var rand_num = randi_range(1, 10)
-	#print_debug(data.risk)
-	#if Bonuses.check_for_bonuses("lucky_clover"):
-		#rand_num = 10
-		#Bonuses.remove_used_bonus("lucky_clover")
-	#print_debug("Success rate: ", rand_num)
-	#if rand_num > data.risk:
-		#print_debug("Pass")
-		#for i in data.effect.good:
-			#if data.effect.good[i] > 0 or data.effect.good[i] < 0:
-				#if Bonuses.check_for_bonuses("double_resource"):
-					#print_debug("Double Resource!")
-					#SignalBus.announcement_set.emit(i, data.effect.good[i] * Bonuses.get_bonus_effect("double_resource"))
-					#Bonuses.remove_used_bonus("double_resource")
-				#else:
-					#SignalBus.announcement_set.emit(i, data.effect.good[i])
-		#SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
-		##data.effect
-	#else:
-		#print_debug("Fail")
-		#for i in data.effect.bad:
-			#if data.effect.bad[i] < 0:
-				#if Bonuses.check_for_bonuses("resource_saved"):
-					#Bonuses.remove_used_bonus("resource_saved")
-					#print("Saved Resource!")
-				#else:
-					#SignalBus.announcement_set.emit(i, data.effect.bad[i])
-					#SignalBus.effect.emit(data.effect.bad.hunger, data.effect.bad.thirst, data.effect.bad.moves)
 
 
 func set_data(passed:bool):
@@ -118,7 +86,6 @@ func set_data(passed:bool):
 				else:
 					SignalBus.announcement_set.emit(i, data.effect.good[i])
 		SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
-			#data.effect
 	else:
 		print_debug("Fail")
 		for i in data.effect.bad:

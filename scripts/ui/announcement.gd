@@ -35,7 +35,6 @@ func remove_announcement():
 	tween.tween_callback(queue_free)
 
 func set_color(color):
-	#var theme = StyleBoxFlat.new().duplicate()
 	var theme : StyleBox
 	theme = panel_theme.duplicate()
 	theme.bg_color = color

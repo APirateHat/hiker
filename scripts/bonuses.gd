@@ -45,4 +45,3 @@ func remove_used_bonus(bonus: String):
 			if i.id == bonus:
 				print("Removing Used Bonus")
 				_remove_bonus(applied_bonuses.find(i))
-			#break

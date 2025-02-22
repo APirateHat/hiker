@@ -15,10 +15,8 @@ func open_pause_menu():
 	if !settings_menu.visible:
 		pause_menu.visible = !pause_menu.visible
 		if pause_menu.visible:
-			#MusicManager.eq_music(true)
 			StateManager.current_state = StateManager.state.PAUSED
 		else:
-			#MusicManager.eq_music(false)
 			StateManager.current_state = StateManager.previous_state
 	else:
 		settings_menu.visible = !settings_menu.visible

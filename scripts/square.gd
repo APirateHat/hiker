@@ -10,5 +10,4 @@ var square_type: type
 
 func add_event():
 	if resource != null:
-		#await get_tree().create_timer(0.5).timeout
 		SignalBus.add_event.emit(resource)

@@ -5,7 +5,6 @@ var current_hazard : HazardResource
 
 signal update_hazard(num:int)
 signal start_hazard(value:bool)
-#signal end_hazard
 
 func apply_hazard():
 	current_hazard = hazards[0]

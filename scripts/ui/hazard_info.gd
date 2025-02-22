@@ -12,5 +12,4 @@ func _on_panel_container_mouse_exited() -> void:
 	$VBoxContainer.visible = false
 
 func update_duration(num:int):
-	print_debug("haz" ,str(num))
 	%Label.text = str(num)

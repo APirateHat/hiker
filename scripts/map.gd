@@ -37,7 +37,6 @@ func _ready() -> void:
 		event_squares[i].square_type = type.EVENT
 		event_squares[i].icon.texture = load("res://graphics/tiles/event_tile.svg")
 	for i in bonus_squares.size():
-		#bonus_squares[i].resource = event_resources[i]
 		bonus_squares[i].square_type = type.BONUS
 		bonus_squares[i].icon.texture = load("res://graphics/tiles/bonus_tile.svg")
 	for i in hazard_squares.size():
@@ -83,9 +82,6 @@ func assign_terrain_tiles(pixel_pos:Vector2):
 			sprite.z_index = -2
 		"mushrooms":
 			sprite.z_index = -2
-	#sprite.texture = terrain_tiles#terrain_test.pick_random()
-	#sprite.position = Vector2(pixel_pos.x + randf_range(0, 0.5), pixel_pos.y+ randf_range(0, 0.5)) * 128
-	#sprite.z_index = -2
 
 func get_pixels(color, callable:Callable):
 	var img = image.get_image()

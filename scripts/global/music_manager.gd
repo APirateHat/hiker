@@ -17,7 +17,6 @@ func play_music(track:AudioStreamSynchronized, fade_in: float):
 	asp.volume_db = -80
 	asp.stream.set_sync_stream_volume(1, -60)
 	asp.play()
-	#print_debug("Playing " + track)
 
 func crossfade_sync_streams(from:int=0, to:int=1, duration:float=0.2):
 	if audio_players[0].stream.get_stream_count() > 1:

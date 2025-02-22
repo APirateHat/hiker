@@ -46,7 +46,6 @@ func _ready() -> void:
 	SignalBus.remove_bonus.connect(remove_bonus_icon)
 	SignalBus.announcement_set.connect(add_announcement)
 	SignalBus.show_buttons.connect(show_buttons)
-	#SignalBus.dice_value.connect(create_dice)
 	SignalBus.dice_value.connect(add_to_dice_array)
 	SignalBus.spawn_dice.connect(create_dice)
 	SignalBus.game_over.connect(game_over)
@@ -58,11 +57,6 @@ func _ready() -> void:
 		add_bonus_icon(i)
 	
 
-#func _input(event: InputEvent) -> void:
-	#if event is InputEvent:
-		#if event.is_action_pressed("ui_cancel"):
-			#open_pause_menu()
-
 func add_event(resource):
 	var e = event.instantiate()
 	event_parent.add_child(e)
@@ -73,10 +67,6 @@ func display_player_stats(food, water, moves):
 	player_stats.hunger.text = str(food)
 	player_stats.thirst.text = str(water)
 	player_stats.moves.text = str(moves)
-	
-	#player_moves = moves
-	#player_thirst = water
-	#player_hunger = food
 	
 	if moves == 10:
 		button_camp.disabled = true
@@ -140,7 +130,6 @@ func map_information(size):
 var announcement_queue : Array
 
 func add_announcement(icon, value):
-	#print("Adding announcement")
 	var a = announcement.instantiate()
 	announcement_parent.add_child(a)
 	a.assign_data(icon, value)

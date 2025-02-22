@@ -23,16 +23,12 @@ func _ready() -> void:
 	
 	for square in $Map.squares.get_children():
 		squares.append(square)
-	#print(squares[squares.size()/2].global_position)
 	$Camera2D.position = squares[squares.size()-1].global_position
-	#$Camera2D.zoom = Vector2(1, 1) * squares.size() /100
 	player.position = squares[0].global_position
-	#current_state = state.STARTED
 	StateManager.current_state = StateManager.state.STARTED
 	print(squares.size())
 	await get_tree().create_timer(1).timeout
 	StateManager.current_state = StateManager.state.READY
-	#$Camera2D.zoom = Vector2(1, 1)
 	
 	SignalBus.dice_roll.connect(roll_dice)
 	SignalBus.camp.connect(set_up_camp)
@@ -40,8 +36,6 @@ func _ready() -> void:
 	SignalBus.reset.connect(reset)
 	
 	Hazards.start_hazard.connect(hazard_graphics)
-	#Hazards.apply_hazard()
-	#hazard_graphics(true)
 
 func _input(event: InputEvent) -> void:
 	pass
@@ -50,12 +44,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	#print(current_state)
-	#if StateManager.current_state == StateManager.state.READY or StateManager.current_state == StateManager.state.MOVING:
 	$Camera2D.position = lerp($Camera2D.position, player.position, 0.1)
 	if lerp_time <= 1:
 		lerp_time += 1 * delta
-	#if current_state == state.READY:
 	player.position = lerp(player.position, squares[current_square].global_position, lerp_time)
 	is_player_in_position()
 		
@@ -66,16 +57,11 @@ func is_player_in_position():
 			print("Player On Goal Square")
 			player.anim.play("idle", 0.5)
 			if check_for_events():
-				#MusicManager.crossfade_sync_streams(0, 1)
 				StateManager.current_state = StateManager.state.EVENT
 			else:
 				StateManager.current_state = StateManager.state.READY
 
 func check_for_events():
-	#if player.food < 0 or player.water < 0:
-		#print_debug("Game Over")
-		#SignalBus.game_over.emit()
-	#else:
 	if squares[current_square].square_type == squares[current_square].type.EVENT:
 		squares[current_square].add_event()
 		SignalBus.show_buttons.emit(false)
@@ -100,7 +86,6 @@ func roll_dice():
 	player.change_stats(0, 0, -1)
 	SignalBus.announcement_set.emit("moves", -1)
 	if !first_move:
-		#MusicManager.play_music(load("res://resources/music/main_music.tres"), 0.0)
 		first_move = true
 	player.set_camp(false)
 	var combined_move : int
@@ -112,24 +97,18 @@ func roll_dice():
 			combined_move = dice_1 + dice_2
 			print("Dice roll 1: ", dice_1)
 			print("Dice roll 2: ", dice_2)
-			#if player.moves < combined_move:
-				#combined_move = player.moves
 			SignalBus.dice_value.emit(dice_1)
 			SignalBus.dice_value.emit(dice_2)
 			SignalBus.spawn_dice.emit()
 			$Camera2D/Control/UI.value_of_dice = combined_move
-			#dice_roll = randi_range(1, Bonuses.get_bonus_effect("double_dice"))
 			Bonuses.remove_used_bonus("double_dice")
 		else:
 			dice_roll = randi_range(1, 6)
 			combined_move = dice_roll
 			print("Dice roll: ", dice_roll)
-			#if player.moves < combined_move:
-				#combined_move = player.moves
 			SignalBus.dice_value.emit(dice_roll)
 			SignalBus.spawn_dice.emit()
 			$Camera2D/Control/UI.value_of_dice = combined_move
-		#var combined_move = dice_roll# + player.moves
 		
 
 func move_player(num:int):
@@ -150,9 +129,6 @@ func move_player(num:int):
 				if squares[current_square].square_type == squares[current_square].type.EVENT:
 					goal = current_square
 					Bonuses.remove_used_bonus("event_stopper")
-			#if player.moves > 0:
-					#player.change_stats(0, 0, -1)
-					#SignalBus.announcement_set.emit("moves", -1)
 			if current_square >= squares.size() - 1:
 				print("You Finished!")
 				$Camera2D/Control/UI.game_finished()
@@ -201,14 +177,12 @@ func set_up_camp():
 
 func hazard_graphics(value:bool):
 	if value:
-		#MusicManager.eq_music(value)
 		MusicManager.crossfade_sync_streams(0, 1)
 		$Ambience.stream.set_sync_stream_volume(1, -6)
 		$Ambience.stream.set_sync_stream_volume(0, -60)
 	else:
 		$Ambience.stream.set_sync_stream_volume(0, 10.0)
 		$Ambience.stream.set_sync_stream_volume(1, -60)
-		#MusicManager.eq_music(value)
 		MusicManager.crossfade_sync_streams(1, 0)
 	hazard = value
 	$Camera2D/Control/ColorRect.visible = value
