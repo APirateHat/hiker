@@ -41,8 +41,17 @@ func assign_data(event_data):
 func _on_button_okay_pressed() -> void:
 	for i in data.effect.good:
 		if data.effect.good[i] > 0:
-			SignalBus.announcement_set.emit(i, data.effect.good[i])
-	SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
+			if Bonuses.check_for_bonuses("double_resource"):
+				print_debug("Double Resource!")
+				SignalBus.announcement_set.emit(i, data.effect.good[i] * Bonuses.get_bonus_effect("double_resource"))
+				Bonuses.remove_used_bonus("double_resource")
+			else:
+				SignalBus.announcement_set.emit(i, data.effect.good[i])
+	if Bonuses.check_for_bonuses("double_resource"):		
+		SignalBus.effect.emit(data.effect.good.hunger * Bonuses.get_bonus_effect("double_resource"), data.effect.good.thirst * Bonuses.get_bonus_effect("double_resource"), data.effect.good.moves * Bonuses.get_bonus_effect("double_resource"))
+		Bonuses.remove_used_bonus("double_resource")
+	else:
+		SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
 	queue_free()
 
 func _on_button_no_pressed() -> void:
@@ -82,10 +91,14 @@ func set_data(passed:bool):
 				if Bonuses.check_for_bonuses("double_resource"):
 					print_debug("Double Resource!")
 					SignalBus.announcement_set.emit(i, data.effect.good[i] * Bonuses.get_bonus_effect("double_resource"))
-					Bonuses.remove_used_bonus("double_resource")
+					#Bonuses.remove_used_bonus("double_resource")
 				else:
 					SignalBus.announcement_set.emit(i, data.effect.good[i])
-		SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
+		if Bonuses.check_for_bonuses("double_resource"):		
+			SignalBus.effect.emit(data.effect.good.hunger * Bonuses.get_bonus_effect("double_resource"), data.effect.good.thirst * Bonuses.get_bonus_effect("double_resource"), data.effect.good.moves * Bonuses.get_bonus_effect("double_resource"))
+			Bonuses.remove_used_bonus("double_resource")
+		else:
+			SignalBus.effect.emit(data.effect.good.hunger, data.effect.good.thirst, data.effect.good.moves)
 	else:
 		print_debug("Fail")
 		for i in data.effect.bad:

@@ -37,10 +37,10 @@ func _ready() -> void:
 	
 	Hazards.start_hazard.connect(hazard_graphics)
 
-func _input(event: InputEvent) -> void:
-	pass
-	if Input.is_action_just_pressed("ui_down"):
-		move_player(1)	
+#func _input(event: InputEvent) -> void:
+	#pass
+	#if Input.is_action_just_pressed("ui_down"):
+		#move_player(1)	
 
 
 func _process(delta: float) -> void:

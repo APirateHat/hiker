@@ -12,6 +12,7 @@ func _ready() -> void:
 	SignalBus.add_bonus_cards.connect(select_bonuses)
 	SignalBus.apply_bonus.connect(applying_bonus)
 	
+	
 
 func applying_bonus(bonus_data):
 	applied_bonuses.append(bonus_data)
