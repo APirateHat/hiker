@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=2 format=3 uid="uid://dkpgnokjyvw2y"]
+
+[ext_resource type="AudioStream" uid="uid://chig7hoiou442" path="res://audio/music/hiker_menu_theme.wav" id="1_ogikn"]
+
+[resource]
+stream_count = 1
+stream_0/stream = ExtResource("1_ogikn")
+stream_0/volume = 0.0

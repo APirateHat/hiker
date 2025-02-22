@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://6iwcncfadef6"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_tyift"]
+
+[resource]
+script = ExtResource("1_tyift")
+id = ""
+description = "You found some mushroom you know are safe to eat!"
+choice = false
+decision = false
+choice_yes = ""
+choice_no = ""
+effect = {
+"bad": {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+},
+"good": {
+"hunger": 1,
+"moves": 0,
+"thirst": 0
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 0

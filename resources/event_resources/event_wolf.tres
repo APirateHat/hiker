@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://dbek818yy8pv4"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_4khch"]
+
+[resource]
+script = ExtResource("1_4khch")
+id = "wolf"
+description = "A wolf appears. It looks hungry."
+choice = true
+decision = true
+choice_yes = "Pet it!"
+choice_no = "Run!"
+effect = {
+"bad": {
+"hunger": -1,
+"moves": 0,
+"thirst": 0
+},
+"good": {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": -1,
+"thirst": 0
+}
+risk = 5

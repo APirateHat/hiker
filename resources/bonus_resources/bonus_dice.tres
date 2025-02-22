@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://cyx5d6xdyoguw"]
+
+[ext_resource type="Texture2D" uid="uid://cl3pny0paqmt" path="res://graphics/bonus_icons/double_dice.svg" id="1_bt35i"]
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_lox3w"]
+
+[resource]
+script = ExtResource("1_lox3w")
+bonus_name = "Dicey"
+description = "Roll 2 dice during your next roll!"
+icon = ExtResource("1_bt35i")
+bonus_type = 0
+effect = 12
+id = "double_dice"

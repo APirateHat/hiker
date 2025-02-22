@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="21.299023mm"
+   height="22.207281mm"
+   viewBox="0 0 21.299023 22.207281"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="hiker.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.9255614"
+     inkscape:cx="85.453684"
+     inkscape:cy="-341.30202"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" /><defs
+     id="defs1" /><g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(152.32903,-65.429129)"><path
+       id="rect182"
+       style="opacity:1;fill:#f0f0f0;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       d="m -142.80589,65.929124 c -0.67651,0 -1.22115,0.544638 -1.22115,1.221139 v 11.504555 l -4.12759,-4.127591 c -0.47835,-0.478358 -1.2486,-0.478358 -1.72696,0 l -1.59283,1.593004 c -0.47836,0.478358 -0.47836,1.248431 0,1.726789 l 7.33849,7.338486 1.59283,1.593004 c 0.35877,0.358771 0.8816,0.448358 1.32244,0.268973 0.0735,-0.02988 0.14491,-0.0674 0.21268,-0.112248 0.0678,-0.04485 0.13205,-0.09693 0.19184,-0.156725 l 1.59301,-1.59283 7.33849,-7.338486 c 0.47835,-0.478362 0.47835,-1.248601 0,-1.726963 l -1.59301,-1.593004 c -0.47836,-0.478358 -1.2486,-0.478358 -1.72696,0 l -4.12759,4.127766 v -11.50473 c 0,-0.676501 -0.54464,-1.221139 -1.22115,-1.221139 z"
+       inkscape:export-filename="..\Godot\Games\2025 Monthly\february\graphics\ui_graphics\arrow.svg"
+       inkscape:export-xdpi="22.4"
+       inkscape:export-ydpi="22.4" /></g></svg>

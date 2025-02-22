@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://cdbu6v2bc0p8"]
+
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_q2eub"]
+[ext_resource type="Texture2D" uid="uid://cuncgc5qrmi14" path="res://graphics/bonus_icons/clover.svg" id="1_s1fn7"]
+
+[resource]
+script = ExtResource("1_q2eub")
+bonus_name = "Lucky Clover"
+description = "During the chance event you'll have a 100% success-rate."
+icon = ExtResource("1_s1fn7")
+bonus_type = 0
+effect = 0
+id = "lucky_clover"

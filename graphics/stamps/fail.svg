@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25.707893mm"
+   height="9.2359676mm"
+   viewBox="0 0 25.707893 9.2359676"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="hiker.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4627807"
+     inkscape:cx="92.973608"
+     inkscape:cy="-377.02165"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" /><defs
+     id="defs1" /><g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(-16.460482,74.092245)"><rect
+       style="fill:none;stroke:#fe370f;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect107"
+       width="24.707895"
+       height="8.2359648"
+       x="16.960482"
+       y="-73.592247"
+       rx="0.32574323"
+       ry="0.32574323" /><path
+       d="m 21.648024,-66.965027 v -1.05788 h 0.322525 v -2.902721 h -0.322525 v -1.05788 h 3.857393 v 1.670677 H 24.36368 v -0.612797 h -0.586994 v 1.070782 h 0.974024 v 0.735355 h -0.974024 v 1.096584 H 24.6217 v 1.05788 z m 8.166318,-1.05788 h 0.258019 v 1.05788 h -2.528592 v -1.05788 h 0.38703 l -0.103208,-0.516039 h -0.877267 l -0.103208,0.516039 h 0.38703 v 1.05788 h -2.206068 v -1.05788 h 0.25802 l 1.090133,-3.960601 h 2.347978 z m -2.722107,-1.199791 h 0.593445 l -0.26447,-1.283648 h -0.0645 z m 3.186541,2.257671 v -1.05788 H 30.6013 v -2.902721 h -0.322524 v -1.05788 h 2.451186 v 1.05788 h -0.322525 v 2.902721 h 0.322525 v 1.05788 z m 2.709206,0 v -1.05788 h 0.322525 v -2.902721 h -0.322525 v -1.05788 h 2.722107 v 1.05788 h -0.593445 v 2.902721 h 0.580544 v -0.593445 h 1.283648 v 1.651325 z"
+       id="text107"
+       style="font-size:6.45049px;line-height:1.25;font-family:'Alfa Slab One';-inkscape-font-specification:'Alfa Slab One, Normal';letter-spacing:0px;word-spacing:0px;fill:#fe370f;stroke-width:0.0383656"
+       aria-label="FAIL" /></g></svg>

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://ctttpkyc1ts14"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_ukq32"]
+
+[resource]
+script = ExtResource("1_ukq32")
+id = ""
+description = "You stumple upon an old and abandoned campsite."
+choice = false
+decision = false
+choice_yes = ""
+choice_no = ""
+effect = {
+"bad": {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+},
+"good": {
+"hunger": 1,
+"moves": 0,
+"thirst": 1
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 0

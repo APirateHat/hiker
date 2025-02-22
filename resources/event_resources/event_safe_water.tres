@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://crw240xcso03s"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_dit7f"]
+
+[resource]
+script = ExtResource("1_dit7f")
+id = ""
+description = "You found a safe source of water!"
+choice = false
+decision = false
+choice_yes = ""
+choice_no = ""
+effect = {
+"bad": {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+},
+"good": {
+"hunger": 0,
+"moves": 0,
+"thirst": 1
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 0

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://b67rnpjiw87ne"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_pajy8"]
+
+[resource]
+script = ExtResource("1_pajy8")
+id = ""
+description = "You find a very questionable source of water. Are you really desperate enough to drink it?"
+choice = true
+decision = false
+choice_yes = "I'll have to risk it."
+choice_no = "No, I'm not."
+effect = {
+"bad": {
+"hunger": 0,
+"moves": 0,
+"thirst": -2
+},
+"good": {
+"hunger": 0,
+"moves": 0,
+"thirst": 3
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 7

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c25xd2i4gavs2"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_b0wsx"]
+[ext_resource type="PackedScene" uid="uid://c5a6fvxp3dce8" path="res://scenes/map.tscn" id="3_o1ued"]
+[ext_resource type="PackedScene" uid="uid://cy86he4py2qih" path="res://scenes/player.tscn" id="3_q80bw"]
+[ext_resource type="PackedScene" uid="uid://b0xwxk4m8d3r5" path="res://scenes/ui.tscn" id="4_fmuvx"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_b0wsx")
+player = NodePath("Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="Camera2D"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="UI" parent="Camera2D/Control" instance=ExtResource("4_fmuvx")]
+layout_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("3_q80bw")]
+z_index = 5
+
+[node name="Map" parent="." instance=ExtResource("3_o1ued")]
+position = Vector2(-570, -318)

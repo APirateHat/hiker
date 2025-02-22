@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="february"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*res://scripts/global/signal_bus.gd"
+Bonuses="*res://scenes/bonuses.tscn"
+StateManager="*res://scripts/global/state_manager.gd"
+Transition="*res://scenes/transition.tscn"
+Hazards="*res://scenes/hazards.tscn"
+AudioManager="*res://scripts/global/audio_manager.gd"
+MusicManager="*res://scripts/global/music_manager.gd"
+Settings="*res://scenes/settings.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+mouse_cursor/custom_image="res://graphics/ui_icons/cursor.svg"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0.403922, 0.243137, 1)

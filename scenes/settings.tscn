@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2dw55l50tio"]
+
+[ext_resource type="Script" path="res://scripts/global/settings.gd" id="1_7jy11"]
+[ext_resource type="PackedScene" uid="uid://dskv8ggxftl26" path="res://scenes/settings_menu.tscn" id="2_2epfo"]
+[ext_resource type="PackedScene" uid="uid://b44bg6y32gqnj" path="res://scenes/pause_menu.tscn" id="3_8036r"]
+
+[node name="Settings" type="Node2D" node_paths=PackedStringArray("settings_menu", "pause_menu")]
+process_mode = 3
+script = ExtResource("1_7jy11")
+settings_menu = NodePath("settings_menu")
+pause_menu = NodePath("PauseMenu")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_8036r")]
+visible = false
+
+[node name="settings_menu" parent="." instance=ExtResource("2_2epfo")]
+visible = false

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://du7je4px4fx7l"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_dgies"]
+
+[resource]
+script = ExtResource("1_dgies")
+id = ""
+description = "You found a handful of berries. Do you want to eat them?"
+choice = true
+decision = false
+choice_yes = "It's probably safe."
+choice_no = "No, I won't risk it."
+effect = {
+"bad": {
+"hunger": -1,
+"moves": 0,
+"thirst": -1
+},
+"good": {
+"hunger": 2,
+"moves": 0,
+"thirst": 0
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 4

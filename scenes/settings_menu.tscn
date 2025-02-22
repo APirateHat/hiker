@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskv8ggxftl26"]
+
+[ext_resource type="Theme" uid="uid://d1ryw63ekcorc" path="res://theme/main_theme.tres" id="1_m5um1"]
+[ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="2_tcrpx"]
+
+[node name="settings_menu" type="CanvasLayer" node_paths=PackedStringArray("sliders")]
+layer = 2
+script = ExtResource("2_tcrpx")
+sliders = [NodePath("Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer/Master"), NodePath("Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer/Music"), NodePath("Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer/SFX")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m5um1")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.403922, 0.243137, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+text = "Audio"
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainer" type="GridContainer" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="Master" type="HSlider" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Music" type="HSlider" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="ButtonBack" type="Button" parent="Control/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="drag_ended" from="Control/CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/GridContainer/SFX" to="." method="_on_sfx_drag_ended"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer2/ButtonBack" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://di5ugwqo748n8"]
+
+[ext_resource type="Script" path="res://scripts/ui/dice.gd" id="1_bnbyn"]
+[ext_resource type="Texture2D" uid="uid://ma8flfhtih4x" path="res://graphics/dice/dice_1.svg" id="2_8whts"]
+[ext_resource type="Texture2D" uid="uid://b55y72yu3ov3f" path="res://graphics/dice/dice_2.svg" id="3_3qh8e"]
+[ext_resource type="Texture2D" uid="uid://ejj4g76ljmgx" path="res://graphics/dice/dice_3.svg" id="4_g3hu3"]
+[ext_resource type="Texture2D" uid="uid://byb17ptuoolev" path="res://graphics/dice/dice_4.svg" id="5_cjbxo"]
+[ext_resource type="Texture2D" uid="uid://bp805qbnlrdtf" path="res://graphics/dice/dice_5.svg" id="6_s4vor"]
+[ext_resource type="Texture2D" uid="uid://gw67w8qnkurl" path="res://graphics/dice/dice_6.svg" id="7_sw6lt"]
+
+[node name="Dice" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 150.0
+script = ExtResource("1_bnbyn")
+dice_graphics = Array[Resource]([ExtResource("2_8whts"), ExtResource("3_3qh8e"), ExtResource("4_g3hu3"), ExtResource("5_cjbxo"), ExtResource("6_s4vor"), ExtResource("7_sw6lt")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_8whts")

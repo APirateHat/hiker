@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://cqwuh2fj2knp5"]
+
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_rmagv"]
+[ext_resource type="Texture2D" uid="uid://b6hfptttijnng" path="res://graphics/bonus_icons/no_resources.svg" id="1_ymm6p"]
+
+[resource]
+script = ExtResource("1_rmagv")
+bonus_name = "Slow Metabolism"
+description = "Don't eat or drink at your next camp."
+icon = ExtResource("1_ymm6p")
+bonus_type = 1
+effect = 0
+id = "slow_metabolism"

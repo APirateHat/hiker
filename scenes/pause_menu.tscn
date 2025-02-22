@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://b44bg6y32gqnj"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_4lvab"]
+[ext_resource type="Theme" uid="uid://d1ryw63ekcorc" path="res://theme/main_theme.tres" id="1_jcpco"]
+[ext_resource type="Texture2D" uid="uid://b4phb3wj1vhrv" path="res://graphics/ui_graphics/paused_camp.svg" id="3_fvr1a"]
+[ext_resource type="StyleBox" uid="uid://da27xt4ys4xkf" path="res://theme/panel_container_style_box.tres" id="3_ws5o7"]
+[ext_resource type="Script" path="res://scripts/managers/button_manager.gd" id="5_yo77r"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_4lvab")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jcpco")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.678431)
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/CenterContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Control/CenterContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_fvr1a")
+stretch_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_ws5o7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer2/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Label" type="Label" parent="Control/CenterContainer2/VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ButtonContinue" type="Button" parent="Control/CenterContainer2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="ButtonSettings" type="Button" parent="Control/CenterContainer2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ButtonExit" type="Button" parent="Control/CenterContainer2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Exit to menu"
+
+[node name="ButtonRestart" type="Button" parent="Control/CenterContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Restart"
+
+[node name="ButtonHandler" type="Node" parent="Control" node_paths=PackedStringArray("parents")]
+script = ExtResource("5_yo77r")
+parents = [NodePath("../CenterContainer2/VBoxContainer2/VBoxContainer"), NodePath("../CenterContainer2/VBoxContainer2")]
+
+[connection signal="pressed" from="Control/CenterContainer2/VBoxContainer2/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="Control/CenterContainer2/VBoxContainer2/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="Control/CenterContainer2/VBoxContainer2/VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="Control/CenterContainer2/VBoxContainer2/ButtonRestart" to="." method="_on_button_restart_pressed"]

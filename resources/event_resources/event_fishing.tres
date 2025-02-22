@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://bihimrq3l5tox"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_3po44"]
+
+[resource]
+script = ExtResource("1_3po44")
+description = "You found a potential fishing spot. It will require some walking though."
+choice = true
+decision = true
+choice_yes = "I'm going fishing!"
+choice_no = "It sounds risky..."
+effect = {
+"bad": {
+"hunger": 0,
+"moves": -1,
+"thirst": 0
+},
+"good": {
+"hunger": 2,
+"moves": -1,
+"thirst": 0
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 6

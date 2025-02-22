@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://b74og671li5bo"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_7klle"]
+
+[resource]
+script = ExtResource("1_7klle")
+id = ""
+description = "You find a flowing river. The water may be safe to drink."
+choice = true
+decision = false
+choice_yes = "It will be fine."
+choice_no = "I better not..."
+effect = {
+"bad": {
+"hunger": 0,
+"moves": 0,
+"thirst": -1
+},
+"good": {
+"hunger": 0,
+"moves": 0,
+"thirst": 2
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 4

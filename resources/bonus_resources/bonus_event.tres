@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://3x0dqdu746ei"]
+
+[ext_resource type="Texture2D" uid="uid://b18ykmne6yhw6" path="res://graphics/bonus_icons/event_stopper.svg" id="1_bpsc0"]
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_n0l54"]
+
+[resource]
+script = ExtResource("1_n0l54")
+bonus_name = "Eventful Bonus"
+description = "Stop at the next event in your path."
+icon = ExtResource("1_bpsc0")
+bonus_type = 0
+effect = 0
+id = "event_stopper"

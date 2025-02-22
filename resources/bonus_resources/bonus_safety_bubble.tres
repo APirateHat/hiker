@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://cgub11uf8ucgc"]
+
+[ext_resource type="Texture2D" uid="uid://cc5yavvwi4h14" path="res://graphics/bonus_icons/safety.svg" id="1_jx5v8"]
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_lu2ry"]
+
+[resource]
+script = ExtResource("1_lu2ry")
+bonus_name = "Safety Bubble"
+description = "You're saved from losing a resource during an event."
+icon = ExtResource("1_jx5v8")
+bonus_type = 0
+effect = 0
+id = "resource_saved"

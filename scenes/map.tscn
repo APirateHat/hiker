@@ -1,0 +1,53 @@
+[gd_scene load_steps=32 format=3 uid="uid://c5a6fvxp3dce8"]
+
+[ext_resource type="PackedScene" uid="uid://c01t1bc2ybn7f" path="res://scenes/square.tscn" id="1_bk840"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_ct43p"]
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="2_sp15y"]
+[ext_resource type="Resource" uid="uid://du7je4px4fx7l" path="res://resources/event_resources/event_berries.tres" id="3_tfdiy"]
+[ext_resource type="Resource" uid="uid://b74og671li5bo" path="res://resources/event_resources/event_questionable_water.tres" id="4_r8bvs"]
+[ext_resource type="Resource" uid="uid://crw240xcso03s" path="res://resources/event_resources/event_safe_water.tres" id="5_jyxn8"]
+[ext_resource type="Resource" uid="uid://b67rnpjiw87ne" path="res://resources/event_resources/event_unsafe_water.tres" id="6_4nhfc"]
+[ext_resource type="Resource" uid="uid://bqmi530q272k3" path="res://resources/event_resources/event_well_rested.tres" id="7_gphjk"]
+[ext_resource type="Resource" uid="uid://6iwcncfadef6" path="res://resources/event_resources/event_safe_mushrooms.tres" id="8_klskf"]
+[ext_resource type="Resource" uid="uid://dbek818yy8pv4" path="res://resources/event_resources/event_wolf.tres" id="9_6aoeo"]
+[ext_resource type="Resource" uid="uid://ctttpkyc1ts14" path="res://resources/event_resources/event_abandoned_camp.tres" id="10_mbs6g"]
+[ext_resource type="Resource" uid="uid://cdprqunmrv5nq" path="res://resources/event_resources/event_fellow_hiker.tres" id="11_pr0ih"]
+[ext_resource type="Resource" uid="uid://cpy53yn4ix1d0" path="res://resources/event_resources/event_shortcut.tres" id="12_knbib"]
+[ext_resource type="Texture2D" uid="uid://b6mjqn0akvv4x" path="res://graphics/terrain_tiles/terrain_tile_water.svg" id="14_67ubl"]
+[ext_resource type="Texture2D" uid="uid://dsbj4s035vpwi" path="res://icon.svg" id="14_bdbbs"]
+[ext_resource type="Texture2D" uid="uid://ewr3j3pmec6m" path="res://graphics/map_02.png" id="14_y4jyn"]
+[ext_resource type="Texture2D" uid="uid://bhex2oods1svq" path="res://graphics/terrain_tiles/tree.svg" id="15_aijs2"]
+[ext_resource type="Texture2D" uid="uid://bp2jjc6xg87r8" path="res://graphics/terrain_tiles/tree_2.svg" id="16_epxuc"]
+[ext_resource type="Texture2D" uid="uid://ctwhksoylovnw" path="res://graphics/terrain_tiles/tree_3.svg" id="17_nwifs"]
+[ext_resource type="Texture2D" uid="uid://b7r3q8uisftfg" path="res://graphics/terrain_tiles/stick.svg" id="18_ovcjm"]
+[ext_resource type="Texture2D" uid="uid://cwud2o43hhk53" path="res://graphics/terrain_tiles/stick_2.svg" id="19_v61yg"]
+[ext_resource type="Texture2D" uid="uid://b6vqutlibqkpw" path="res://graphics/terrain_tiles/log.svg" id="20_1yeyv"]
+[ext_resource type="Texture2D" uid="uid://bp6igrk22ik2h" path="res://graphics/terrain_tiles/log_2.svg" id="21_gabhp"]
+[ext_resource type="Texture2D" uid="uid://b8r2t4ii7shyq" path="res://graphics/terrain_tiles/bush.svg" id="22_bp28x"]
+[ext_resource type="Texture2D" uid="uid://bm7q1vu3iahrx" path="res://graphics/terrain_tiles/bush_2.svg" id="23_1yiq0"]
+[ext_resource type="Texture2D" uid="uid://droqggfo5u3ur" path="res://graphics/terrain_tiles/moss.svg" id="24_l0o4w"]
+[ext_resource type="Texture2D" uid="uid://cgjlsyqratwdm" path="res://graphics/terrain_tiles/fallen_leaves.svg" id="25_134lv"]
+[ext_resource type="Texture2D" uid="uid://bgo4d2si8d6wy" path="res://graphics/terrain_tiles/mushroom.svg" id="26_bw6ve"]
+[ext_resource type="Texture2D" uid="uid://8h1sbwo14yhc" path="res://graphics/terrain_tiles/mushroom_2.svg" id="27_44hwq"]
+[ext_resource type="Texture2D" uid="uid://bvl5h4n4wktev" path="res://graphics/terrain_tiles/mushroom_3.svg" id="28_63vo2"]
+[ext_resource type="Texture2D" uid="uid://c6qtsq1wi578l" path="res://graphics/terrain_tiles/rocks.svg" id="29_884uk"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_ct43p")
+square = ExtResource("1_bk840")
+event_resources = Array[ExtResource("2_sp15y")]([ExtResource("3_tfdiy"), ExtResource("4_r8bvs"), ExtResource("5_jyxn8"), ExtResource("6_4nhfc"), ExtResource("7_gphjk"), ExtResource("8_klskf"), ExtResource("9_6aoeo"), ExtResource("10_mbs6g"), ExtResource("11_pr0ih"), ExtResource("12_knbib")])
+terrain_tiles = {
+"foliage": [ExtResource("22_bp28x"), ExtResource("23_1yiq0"), ExtResource("24_l0o4w"), ExtResource("25_134lv")],
+"mushrooms": [ExtResource("26_bw6ve"), ExtResource("27_44hwq"), ExtResource("28_63vo2")],
+"rocks": [ExtResource("29_884uk")],
+"sticks": [ExtResource("18_ovcjm"), ExtResource("19_v61yg"), ExtResource("20_1yeyv"), ExtResource("21_gabhp")],
+"terrain": [ExtResource("14_67ubl")],
+"trees": [ExtResource("15_aijs2"), ExtResource("16_epxuc"), ExtResource("17_nwifs")]
+}
+image = ExtResource("14_y4jyn")
+godot = ExtResource("14_bdbbs")
+
+[node name="Squares" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Terrain" type="Node2D" parent="."]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1ieh8ho0u5ip"]
+
+[ext_resource type="Script" path="res://scripts/bonuses.gd" id="1_cf14t"]
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="2_x4q20"]
+[ext_resource type="Resource" uid="uid://cyx5d6xdyoguw" path="res://resources/bonus_resources/bonus_dice.tres" id="3_164th"]
+[ext_resource type="Resource" uid="uid://bh84i1e43rnix" path="res://resources/bonus_resources/bonus_double_resources.tres" id="4_k6jtn"]
+[ext_resource type="Resource" uid="uid://cdbu6v2bc0p8" path="res://resources/bonus_resources/bonus_lucky.tres" id="5_la6s3"]
+[ext_resource type="Resource" uid="uid://cqwuh2fj2knp5" path="res://resources/bonus_resources/bonus_slow_metabolism.tres" id="5_mxvef"]
+[ext_resource type="Resource" uid="uid://cgub11uf8ucgc" path="res://resources/bonus_resources/bonus_safety_bubble.tres" id="6_6n2a5"]
+[ext_resource type="Resource" uid="uid://3x0dqdu746ei" path="res://resources/bonus_resources/bonus_event.tres" id="8_7pu52"]
+
+[node name="Bonuses" type="Node2D"]
+script = ExtResource("1_cf14t")
+bonus_events = Array[ExtResource("2_x4q20")]([ExtResource("3_164th"), ExtResource("4_k6jtn"), ExtResource("5_la6s3"), ExtResource("6_6n2a5"), ExtResource("5_mxvef"), ExtResource("8_7pu52")])

@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=3 format=3 uid="uid://n46j1mgie2j3"]
+
+[ext_resource type="AudioStream" uid="uid://bkm2vnqlaseif" path="res://audio/music/hike_music_normal.wav" id="1_ycohg"]
+[ext_resource type="AudioStream" uid="uid://ciduyck1ivsl3" path="res://audio/music/hike_music_alt_1.wav" id="2_03yr0"]
+
+[resource]
+stream_count = 2
+stream_0/stream = ExtResource("1_ycohg")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_03yr0")
+stream_1/volume = -60.0

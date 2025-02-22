@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://bh84i1e43rnix"]
+
+[ext_resource type="Texture2D" uid="uid://cgr4u8tbud5u" path="res://graphics/bonus_icons/times_two.svg" id="1_dl5jo"]
+[ext_resource type="Script" path="res://scripts/bonus_resource.gd" id="1_xjuv1"]
+
+[resource]
+script = ExtResource("1_xjuv1")
+bonus_name = "Double Trouble"
+description = "Receive double resources from an event."
+icon = ExtResource("1_dl5jo")
+bonus_type = 2
+effect = 2
+id = "double_resource"

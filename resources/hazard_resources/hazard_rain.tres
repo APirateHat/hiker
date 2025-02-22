@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HazardResource" load_steps=2 format=3 uid="uid://pwtkudgunucn"]
+
+[ext_resource type="Script" path="res://scripts/hazard_resource.gd" id="1_jxmji"]
+
+[resource]
+script = ExtResource("1_jxmji")
+hazard_name = "Rainstorm"
+description = ""
+duration = 2

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://cpy53yn4ix1d0"]
+
+[ext_resource type="Script" path="res://scripts/event_resource.gd" id="1_wx3k4"]
+
+[resource]
+script = ExtResource("1_wx3k4")
+id = ""
+description = "You see a potential shortcut on your map. What's the plan?"
+choice = true
+decision = false
+choice_yes = "Take shortcut!"
+choice_no = "Follow the trail."
+effect = {
+"bad": {
+"hunger": 0,
+"moves": -1,
+"thirst": 0
+},
+"good": {
+"hunger": 0,
+"moves": 2,
+"thirst": 0
+}
+}
+decision_effect = {
+"hunger": 0,
+"moves": 0,
+"thirst": 0
+}
+risk = 5

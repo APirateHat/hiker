@@ -1,0 +1,5 @@
+Music and Audio
+
+Nice to have:
+	Discarding cards
+	Show movement value better

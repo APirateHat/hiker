@@ -1,0 +1,343 @@
+[gd_scene load_steps=15 format=3 uid="uid://khroiubsh4w0"]
+
+[ext_resource type="Script" path="res://scripts/ui/event.gd" id="1_6r2yl"]
+[ext_resource type="Theme" uid="uid://d1ryw63ekcorc" path="res://theme/main_theme.tres" id="1_7hbmi"]
+[ext_resource type="Texture2D" uid="uid://bmi2dq1cfmlxp" path="res://graphics/event_icons/event.svg" id="2_6xlf0"]
+[ext_resource type="Texture2D" uid="uid://b7hp52nlu0t40" path="res://graphics/event_icons/hunger.svg" id="3_l0huj"]
+[ext_resource type="Texture2D" uid="uid://d1px2gk6cxsfe" path="res://graphics/event_icons/thirst.svg" id="4_x5qfh"]
+[ext_resource type="Texture2D" uid="uid://gex8i2itnjkc" path="res://graphics/event_icons/moves.svg" id="5_fydal"]
+[ext_resource type="Script" path="res://scripts/managers/button_manager.gd" id="7_pva8c"]
+[ext_resource type="Texture2D" uid="uid://dvblin4a0x7bl" path="res://graphics/stamps/pass.svg" id="8_5vrku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5057"]
+bg_color = Color(0.996078, 0.619608, 0.196078, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="Theme" id="Theme_1w8j4"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/styles/normal = SubResource("StyleBoxFlat_u5057")
+
+[sub_resource type="Animation" id="Animation_awag3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hftr0"]
+resource_name = "stamp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(1.40698, 1.40698), Vector2(0.693596, 0.693596), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_audio"
+}, {
+"args": [false],
+"method": &"set_data"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8m2s3"]
+resource_name = "stamp_pass"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(1.40698, 1.40698), Vector2(0.693596, 0.693596), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_audio"
+}, {
+"args": [true],
+"method": &"set_data"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_goqx1"]
+_data = {
+"RESET": SubResource("Animation_awag3"),
+"stamp_fail": SubResource("Animation_hftr0"),
+"stamp_pass": SubResource("Animation_8m2s3")
+}
+
+[node name="Event" type="Control" node_paths=PackedStringArray("description", "choice_buttons", "button_okay", "icon_parent")]
+z_index = 5
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7hbmi")
+script = ExtResource("1_6r2yl")
+description = NodePath("CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer2/MarginContainer/Label")
+choice_buttons = NodePath("CenterContainer/VBoxContainer2/HBoxContainer")
+button_okay = NodePath("CenterContainer/VBoxContainer2/ButtonOkay")
+icons = {
+"hunger": NodePath("CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect"),
+"moves": NodePath("CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect3"),
+"thirst": NodePath("CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect2")
+}
+icon_parent = NodePath("CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_6xlf0")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "EVENT"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer2/MarginContainer"]
+custom_minimum_size = Vector2(250, 10)
+layout_mode = 2
+text = "You found a particularily nice camping spot. You feel well rested!"
+autowrap_mode = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_l0huj")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_x5qfh")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/VBoxContainer2/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_fydal")
+stretch_mode = 2
+
+[node name="ButtonOkay" type="Button" parent="CenterContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OKAY!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ButtonYes" type="Button" parent="CenterContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "YES"
+
+[node name="ButtonNo" type="Button" parent="CenterContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "NO"
+
+[node name="Tooltip" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -338.0
+offset_bottom = 67.0
+grow_horizontal = 0
+mouse_filter = 2
+theme = SubResource("Theme_1w8j4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="Tooltip/MarginContainer"]
+layout_mode = 2
+text = "Event may affect this stat"
+horizontal_alignment = 1
+
+[node name="ButtonHandler" type="Node" parent="." node_paths=PackedStringArray("parents")]
+script = ExtResource("7_pva8c")
+parents = [NodePath("../CenterContainer/VBoxContainer2/HBoxContainer"), NodePath("../CenterContainer/VBoxContainer2")]
+
+[node name="Stamp" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Stamp"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -40.0
+offset_right = 96.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.258778
+pivot_offset = Vector2(97, 35)
+texture = ExtResource("8_5vrku")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stamp"]
+libraries = {
+"": SubResource("AnimationLibrary_goqx1")
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/ButtonOkay" to="." method="_on_button_okay_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/HBoxContainer/ButtonYes" to="." method="_on_button_yes_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/HBoxContainer/ButtonNo" to="." method="_on_button_no_pressed"]

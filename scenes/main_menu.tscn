@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://1psmx22xp12a"]
+
+[ext_resource type="Theme" uid="uid://d1ryw63ekcorc" path="res://theme/main_theme.tres" id="1_554i7"]
+[ext_resource type="Texture2D" uid="uid://85hmy5v434fe" path="res://graphics/ui_graphics/logo.svg" id="2_burdf"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="2_dn3ho"]
+[ext_resource type="Script" path="res://scripts/managers/button_manager.gd" id="3_lwrbl"]
+[ext_resource type="PackedScene" uid="uid://for4audw80yp" path="res://scenes/credits.tscn" id="5_0opb7"]
+
+[sub_resource type="Gradient" id="Gradient_ugn6f"]
+offsets = PackedFloat32Array(0, 0.700787)
+colors = PackedColorArray(0, 0.403922, 0.498039, 1, 0, 0.570432, 0.698698, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6qj5"]
+gradient = SubResource("Gradient_ugn6f")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_554i7")
+script = ExtResource("2_dn3ho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_t6qj5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ButtonStart" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="ButtonSetting" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_burdf")
+
+[node name="ButtonHandler" type="Node" parent="." node_paths=PackedStringArray("parents")]
+script = ExtResource("3_lwrbl")
+parents = [NodePath("../CenterContainer/VBoxContainer"), NodePath("../MarginContainer/CenterContainer")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonCredits" type="Button" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Credits" parent="." instance=ExtResource("5_0opb7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonSetting" to="." method="_on_button_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="Credits/MarginContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="Credits"]
